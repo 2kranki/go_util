@@ -44,7 +44,7 @@ func TestCopyFile(t *testing.T) {
 
 	t.Log("TestCopyFile()")
 
-	src := NewPath("../test").Append("test.exec.json.txt")
+	src := NewPath("./test").Append("test.exec.json.txt")
 	dst := NewTempDir().Append("testout.txt")
 	err = CopyFile(src, dst)
 	if err != nil {
@@ -68,7 +68,7 @@ func TestCopyDir(t *testing.T) {
 
 	t.Log("TestCopyDir()")
 
-	src  := NewPath("../test")
+	src  := NewPath("./test")
 	dst  := NewTempDir().Append("test2")
 	dst2 := NewTempDir().Append("test3")
 
@@ -95,7 +95,7 @@ func TestCopyDir(t *testing.T) {
 
 	dst.RemoveDir()
 
-	dst3 := dst2.Append("../test")
+	dst3 := dst2.Append("./test")
 	dst2 =  dst2.Append("")
 	t.Logf("\tcopying %s -> %s\n", src.String(), dst2.String())
 	err = CopyDir(src, dst3)
@@ -121,7 +121,7 @@ func TestReadJson(t *testing.T) {
 
 	t.Log("TestReadJson()")
 
-	if jsonOut, err = ReadJsonFile("../test/test.exec.json.txt"); err != nil {
+	if jsonOut, err = ReadJsonFile("./test/test.exec.json.txt"); err != nil {
 		t.Errorf("ReadJson(test.exec.json.txt) failed: %s\n", err)
 	}
 	m := jsonOut.(map[string]interface{})
@@ -147,7 +147,7 @@ func TestReadJsonFileToData(t *testing.T) {
 
 	jsonOut = jsonData{}
 	t.Log("&jsonOut:", &jsonOut)
-	err = ReadJsonFileToData("../test/test.exec.json.txt", &jsonOut)
+	err = ReadJsonFileToData("./test/test.exec.json.txt", &jsonOut)
 	if err != nil {
 		t.Errorf("ReadJsonToData(test.exec.json.txt) failed: %s\n", err)
 	}

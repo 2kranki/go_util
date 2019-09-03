@@ -21,7 +21,7 @@ func TestIsPathDir(t *testing.T) {
 	}
 	t.Logf("\t%s absolute: %s\n", path.String(), path.Absolute())
 
-	path = NewPath("../test")
+	path = NewPath("./test")
 	if !path.IsPathDir() {
 		t.Errorf("IsPathDir(%s) failed!\n", path.String())
 	}
