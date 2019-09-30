@@ -1,4 +1,4 @@
-module go_util
+module github.com/2kranki/go_util
 
 go 1.12
 
