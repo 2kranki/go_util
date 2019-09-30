@@ -10,6 +10,29 @@ import (
 	"testing"
 )
 
+func TestDir(t *testing.T) {
+	var test 	func (string,string)
+
+	t.Log("TestDir()")
+	test = func(src, dst string) {
+		p := NewPath(src)
+		if p.Dir() != dst {
+			t.Errorf("Dir(%s) = %s, but should be %s!\n", src, p.Dir(), dst)
+		}
+	}
+
+	test("/a/b/c.d", "/a/b")
+	test("/a/b/c", "/a/b")
+	test("a/b/c", "a/b")
+	test("/a/", "/a")
+	test("a/", "a")
+	test("/", "/")
+	test("..", "..")
+	test("", ".")
+
+	t.Log("\tend: TestDir")
+}
+
 func TestIsPathDir(t *testing.T) {
 	var path	*Path
 
@@ -122,7 +145,7 @@ func TestPath(t *testing.T) {
 		t.Errorf("PathClean Got: %s  Expected: %s\n", pth, expected)
 	}
 
-	pwd := NewWorkDir()
+	pwd := NewCurrentWorkDir()
 	t.Logf("PWD: %s\n", pwd.String())
 
 	t.Log("\tend: TestPathClean")

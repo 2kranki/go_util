@@ -21,7 +21,8 @@ import (
 //============================================================================
 
 // SharedData represents a common structure to share data across packages
-// easily.
+// easily. It would normally be created in package, main, and passed as
+// needed to other packages.
 type SharedData struct {
 	cmd			string
 	dataPath	string

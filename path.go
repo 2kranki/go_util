@@ -123,6 +123,16 @@ func (p *Path) DeleteFile( ) error {
 	return err
 }
 
+// Dir returns everything but the last component of the path.
+// If the directory portion is empty, then '.' is returned.
+func (p *Path) Dir( ) string {
+	if p.str == ".." {
+		return ".."
+	}
+	b := filepath.Dir(p.str)
+	return b
+}
+
 // Expand replaces ${var} or $var in the given path based on the
 // mapping function returning a new path.
 func (p *Path) Expand(mapping func(string) string) *Path {
@@ -242,8 +252,8 @@ func NewPath(s string) *Path {
 	return &p
 }
 
-// NewWorkDir returns the current working directory as a Path.
-func NewWorkDir() *Path {
+// NewCurrentWorkDir returns the current working directory as a Path.
+func NewCurrentWorkDir() *Path {
 	p := Path{}
 	p.str, _ = os.Getwd()
 	return &p

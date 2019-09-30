@@ -223,7 +223,7 @@ func ReadJsonFile(jsonPath string) (interface{}, error) {
 		return jsonOut, err
 	}
 
-	// Read and process the template file
+	// Read and process the JSON.
 	err = json.Unmarshal([]byte(textBuf.String()), &jsonOut)
 	if err != nil {
 		return jsonOut, err
