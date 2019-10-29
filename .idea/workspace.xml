@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2934dfeb-ee43-4804-891c-f5beb2da6a13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_dir.go" beforeDir="false" afterPath="$PROJECT_DIR$/file_dir.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/path.go" beforeDir="false" afterPath="$PROJECT_DIR$/path.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/path_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/path_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared.go" beforeDir="false" afterPath="$PROJECT_DIR$/shared.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tag.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tag.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exec.go" beforeDir="false" afterPath="$PROJECT_DIR$/exec.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stringBuilder.go" beforeDir="false" afterPath="$PROJECT_DIR$/stringBuilder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workers.go" beforeDir="false" afterPath="$PROJECT_DIR$/workers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workers_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/workers_test.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +53,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -79,23 +78,6 @@
       <filePath value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
-  </component>
-  <component name="TestHistory">
-    <history-entry file="go_test_go_util - 2019.09.03 at 11h 50m 32s.xml">
-      <configuration name="go test go_util" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_go_util - 2019.09.03 at 11h 50m 50s.xml">
-      <configuration name="go test go_util" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_go_util - 2019.09.03 at 11h 53m 31s.xml">
-      <configuration name="go test go_util" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_go_util - 2019.09.03 at 11h 58m 47s.xml">
-      <configuration name="go test go_util" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_go_util - 2019.09.03 at 13h 18m 35s.xml">
-      <configuration name="go test go_util" configurationId="GoTestRunConfiguration" />
-    </history-entry>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />

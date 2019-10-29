@@ -49,7 +49,7 @@ func (c *ExecCmd) QuoteArgIfNeeded(n int) string {
 	return s
 }
 
-// Runt runs the previously set up command.
+// Run runs the previously set up command.
 func (c *ExecCmd) Run( ) error {
 	var err		error
 

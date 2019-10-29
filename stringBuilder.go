@@ -3,6 +3,11 @@
 
 // Miscellaneous utility functions
 
+// Note: I originally did this to get WriteStringf. However, the following
+// 		will work without the need for StringBuilder:\
+//			var str strings.Builder
+//			fmt.Fprintf(&str, "Hello, world!\n")
+
 // Note that these functions are made unique by attaching them to a structure
 // which must be instanced before they can be used.
 

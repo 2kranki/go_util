@@ -17,6 +17,7 @@ func TestWorkQueue(t *testing.T) {
 
 	t.Log("TestWorkQueue()")
 
+	// Set up a work queue.
 	work = NewWorkQueue(
 			func(a interface{}, cmn interface{}) {
 				var t		int
@@ -25,9 +26,15 @@ func TestWorkQueue(t *testing.T) {
 			},
 			nil,
 			2)
+
+	// Now push some work on it.
+	// Note - this may cause this goroutine to pause
+	// if the work queue becomes full.
 	for n = 1; n < 10; n++ {
 		work.PushWork(n)
 	}
+
+	// Wait until all the work is complete.
 	work.CloseAndWaitForCompletion()
 
 	t.Log("\tend: TestWorkQueue")
