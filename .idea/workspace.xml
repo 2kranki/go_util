@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2934dfeb-ee43-4804-891c-f5beb2da6a13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exec.go" beforeDir="false" afterPath="$PROJECT_DIR$/exec.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stringBuilder.go" beforeDir="false" afterPath="$PROJECT_DIR$/stringBuilder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workers.go" beforeDir="false" afterPath="$PROJECT_DIR$/workers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workers_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/workers_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exec_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/exec_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/token.go" beforeDir="false" afterPath="$PROJECT_DIR$/token.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,6 +76,16 @@
       <filePath value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />

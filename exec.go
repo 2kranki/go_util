@@ -14,6 +14,7 @@ package util
 import (
 	"os/exec"
 	"strings"
+	"unicode"
 )
 
 //============================================================================
@@ -36,6 +37,13 @@ func (c *ExecCmd) CommandString( ) string {
 		a[i] = c.QuoteArgIfNeeded(i)
 	}
 	return strings.Join(a, " ")
+}
+
+func (c *ExecCmd) SetCommandString(cmd string) {
+	args, err := ParseCommand(cmd)
+	if err == nil {
+		c.cmd.Args = args
+	}
 }
 
 func (c *ExecCmd) QuoteArgIfNeeded(n int) string {
@@ -74,12 +82,66 @@ func (c *ExecCmd) RunWithOutput( ) (string, error) {
 	return s, nil
 }
 
-func NewExecCmd(name string, args ...string) *ExecCmd {
+//----------------------------------------------------------------------------
+//							Class Functions
+//----------------------------------------------------------------------------
+
+func NewExec() *ExecCmd {
+	ce := ExecCmd{}
+	return &ce
+}
+
+func NewExecArgs(name string, args ...string) *ExecCmd {
 	ce := ExecCmd{}
 	if len(name) > 0 {
 		ce.cmd = exec.Command(name, args...)
 	}
 	return &ce
+}
+
+/*   ParseCommand parses the program command line breaking it
+     up into substrings forming an argv/argc structure. Arguments are
+     separated by whitespace. An AStrC Array is used for argv/argc.
+     We don't have to completely parse the command line, just break
+     it up being coznizant of the quoted strings which assumes that
+     they should either be by themselves or at the end of an argument.
+     Note: we currently do not handle embedded quotes.
+ */
+func ParseCommand(cmd string) ([]string, error) {
+	var args	[]string
+	var i		int
+
+	cmdRunes := []rune(cmd)
+	iMax := len(cmdRunes)
+
+	for i=0; i<iMax; {
+		// Skip leading spaces.
+		for (i < iMax) && unicode.IsSpace(cmdRunes[i]) {
+			i++
+		}
+		// Scan off an argument.
+		if (i < iMax) {
+			start := i
+			for (i < iMax) && !unicode.IsSpace(cmdRunes[i]) {
+				if (cmdRunes[i] == '"') || (cmdRunes[i] == '\'') {
+					quote := cmdRunes[i]; i++
+					for (i < iMax) && !(cmdRunes[i] == quote) {
+						i++
+					}
+				}
+				if !(i < iMax) || unicode.IsSpace(cmdRunes[i]) {
+					break
+				}
+				i++
+			}
+			if (start < iMax) && (start <= iMax) {
+				args= append(args, string(cmdRunes[start:i]))
+			}
+			i++
+		}
+	}
+
+	return args, nil
 }
 
 

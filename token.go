@@ -18,10 +18,11 @@ import (
 //============================================================================
 
 // Valid Types for Token:TypeNo
-const (     // iota = 0
-    Type_Identifier = iota
-    Type_Integer = iota
-    Type_User = iota            // First Type for Inheritance
+const (
+    TypeFloat = iota
+    TypeIdentifier
+    TypeInteger
+    TypeUserStart                   // First Type for Inheritance
 )
 
 
@@ -31,6 +32,7 @@ const (     // iota = 0
 
 type Location struct {
     Path        string              `json:"path,omitempty"`
+    Pos         int                 `json:"pos,omitempty"`
     LineNo      int                 `json:"line_no,omitempty"`
     ColNo       int                 `json:"col_no,omitempty"`
 }
@@ -69,7 +71,7 @@ func (l *Location) JsonUnmarshal(text []byte) error {
 //----------------------------------------------------------------------------
 
 func (l *Location) String() string {
-    return fmt.Sprintf("%s: %d %d", l.Path, l.LineNo, l.ColNo)
+    return fmt.Sprintf("%s: %d %d %d", l.Path, l.Pos, l.LineNo, l.ColNo)
 }
 
 //----------------------------------------------------------------------------
@@ -127,8 +129,9 @@ func (t *Token) JsonUnmarshal(text []byte) error {
 //----------------------------------------------------------------------------
 
 func (t *Token) String() string {
-    return fmt.Sprintf("%d: %d: %s: %d %d - %s", t.TypeNo, t.ClassNo,
-                                t.Loc.Path, t.Loc.LineNo, t.Loc.ColNo, t.Data)
+    return fmt.Sprintf("%d: %d: %s: %d %d %d - %s", t.TypeNo, t.ClassNo,
+                                t.Loc.Path, t.Loc.Pos, t.Loc.LineNo,
+                                t.Loc.ColNo, t.Data)
 }
 
 //----------------------------------------------------------------------------
