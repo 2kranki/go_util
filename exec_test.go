@@ -42,7 +42,7 @@ func TestParseCommand(t *testing.T) {
 
 	t.Log("TestParseCommand01()")
 
-	args, err = ParseCommand("")
+	args, err = ParseCommandLine("")
 	if err != nil {
 		t.Fatalf("ParseCommand(\"\") error: %s!\n", err.Error())
 	}
@@ -54,7 +54,7 @@ func TestParseCommand(t *testing.T) {
 	log.Printf("          1         2         3         4\n")
 	log.Printf("01234567890123456789012345678901234567890123456789\n")
 	log.Printf("cmd len = %d\n", len(cmd01))
-	args, err = ParseCommand(cmd01)
+	args, err = ParseCommandLine(cmd01)
 	if err != nil {
 		t.Fatalf("ParseCommand(cmd01) error: %s!\n", err.Error())
 	}
@@ -82,7 +82,7 @@ func TestParseCommand(t *testing.T) {
 	log.Printf("          1         2         3         4\n")
 	log.Printf("01234567890123456789012345678901234567890123456789\n")
 	log.Printf("cmd len = %d\n", len(cmd02))
-	args, err = ParseCommand(cmd02)
+	args, err = ParseCommandLine(cmd02)
 	if err != nil {
 		t.Fatalf("ParseCommand(cmd01) error: %s!\n", err.Error())
 	}

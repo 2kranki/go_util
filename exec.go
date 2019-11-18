@@ -40,7 +40,7 @@ func (c *ExecCmd) CommandString( ) string {
 }
 
 func (c *ExecCmd) SetCommandString(cmd string) {
-	args, err := ParseCommand(cmd)
+	args, err := ParseCommandLine(cmd)
 	if err == nil {
 		c.cmd.Args = args
 	}
@@ -91,7 +91,7 @@ func NewExec() *ExecCmd {
 	return &ce
 }
 
-func NewExecArgs(name string, args ...string) *ExecCmd {
+func NewExecArgs(name string, args... string) *ExecCmd {
 	ce := ExecCmd{}
 	if len(name) > 0 {
 		ce.cmd = exec.Command(name, args...)
@@ -107,7 +107,7 @@ func NewExecArgs(name string, args ...string) *ExecCmd {
      they should either be by themselves or at the end of an argument.
      Note: we currently do not handle embedded quotes.
  */
-func ParseCommand(cmd string) ([]string, error) {
+func ParseCommandLine(cmd string) ([]string, error) {
 	var args	[]string
 	var i		int
 
