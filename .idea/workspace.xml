@@ -4,7 +4,6 @@
     <list default="true" id="2934dfeb-ee43-4804-891c-f5beb2da6a13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exec.go" beforeDir="false" afterPath="$PROJECT_DIR$/exec.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exec_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/exec_test.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

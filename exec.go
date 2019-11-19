@@ -31,6 +31,9 @@ func (c *ExecCmd) Cmd( ) *exec.Cmd {
 }
 
 func (c *ExecCmd) CommandString( ) string {
+	if c.cmd == nil {
+		return ""
+	}
 	n := len(c.cmd.Args)
 	a := make([]string, n, n)
 	for i := 0; i < n; i++ {
@@ -44,6 +47,13 @@ func (c *ExecCmd) SetCommandString(cmd string) {
 	if err == nil {
 		c.cmd.Args = args
 	}
+}
+
+func (c *ExecCmd) ExitCode( ) int {
+	if (c.cmd == nil) || (c.cmd.ProcessState == nil) {
+		return -1
+	}
+	return c.cmd.ProcessState.ExitCode()
 }
 
 func (c *ExecCmd) QuoteArgIfNeeded(n int) string {
@@ -88,14 +98,13 @@ func (c *ExecCmd) RunWithOutput( ) (string, error) {
 
 func NewExec() *ExecCmd {
 	ce := ExecCmd{}
+	ce.cmd = &exec.Cmd{}
 	return &ce
 }
 
 func NewExecArgs(name string, args... string) *ExecCmd {
 	ce := ExecCmd{}
-	if len(name) > 0 {
-		ce.cmd = exec.Command(name, args...)
-	}
+	ce.cmd = exec.Command(name, args...)
 	return &ce
 }
 
